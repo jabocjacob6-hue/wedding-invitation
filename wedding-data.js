@@ -1,5 +1,5 @@
 const WEDDING_DATA = {
-  // 🎵 តន្ត្រីពី YouTube (គ្រាន់តែយក Video ID ពី YouTube Link មកដាក់ទីនេះ)
+  // 🎵 តន្ត្រីពី YouTube (គ្https://youtu.be/d6-xy0WePus?si=1qwVyZ6csBnlOFYx)
   // ឧទាហរណ៍: https://www.youtube.com/watch?v=dQw4w9WgXcQ -> ID គឺ "dQw4w9WgXcQ"
   youtubeVideoId: "dQw4w9WgXcQ", // ជំនួសដោយ ID ចម្រៀងខ្មែរដែលអ្នកស្រឡាញ់
   audioFallbackUrl: "", // ឬអាចដាក់ link file .mp3 ផ្ទាល់
