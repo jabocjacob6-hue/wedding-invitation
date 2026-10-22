@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>លិខិតគោរពអញ្ជើញ - Wedding Invitation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="relative flex justify-center bg-[#0d170f]">
+
+  <!-- Mobile View Container -->
+  <div class="w-full max-w-md min-h-screen bg-[#122115] relative shadow-2xl overflow-hidden pb-16">
+
+    <!-- 🎵 Hidden YouTube Audio Player -->
+    <div id="youtube-player" class="hidden"></div>
+
+    <!-- 🔝 Floating Header (Monogram + Lang + Music) -->
+    <header class="fixed top-0 left-0 right-0 max-w-md mx-auto z-40 px-4 py-3 flex items-center justify-between bg-[#122115]/85 backdrop-blur-md border-b border-[#d4af37]/20">
+      <div class="text-[#d4af37] font-moul text-sm tracking-wide" id="nav-initials">រស្មី & ភក្តី</div>
+      
+      <div class="flex items-center space-x-3">
+        <span class="text-xs text-[#f7e7a9] font-medium border-r border-[#d4af37]/30 pr-2">ខ្មែរ | EN</span>
+        
+        <!-- Music Toggle Button with Equalizer Bars -->
+        <button id="music-btn" class="flex items-center space-x-1 p-2 rounded-full bg-[#182d1c] border border-[#d4af37]/40 text-[#d4af37] cursor-pointer">
+          <div class="w-1 bg-[#d4af37] rounded bar h-3"></div>
+          <div class="w-1 bg-[#d4af37] rounded bar h-4"></div>
+          <div class="w-1 bg-[#d4af37] rounded bar h-2"></div>
+        </button>
+      </div>
+    </header>
+
+    <!-- ✉️ 1. INTRO / ENVELOPE OPENING OVERLAY -->
+    <section id="envelope-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#122115] p-6 text-center">
+      <div class="mb-4 text-[#d4af37] font-moul text-lg">លិខិតគោរពអញ្ជើញ</div>
+      <div class="text-xs text-[#f7e7a9]/70 font-cinzel tracking-widest uppercase mb-6">The Wedding Invitation</div>
+
+      <!-- Animated Envelope -->
+      <div id="envelope-box" class="w-72 h-80 bg-[#1b3320] border-2 border-[#d4af37]/50 rounded-xl shadow-2xl relative flex flex-col items-center justify-center p-4 cursor-pointer transform hover:scale-[1.02] transition">
+        
+        <!-- Corner Gold Flourish -->
+        <div class="absolute top-2 left-2 text-[#d4af37] text-xs">✤</div>
+        <div class="absolute top-2 right-2 text-[#d4af37] text-xs">✤</div>
+        <div class="absolute bottom-2 left-2 text-[#d4af37] text-xs">✤</div>
+        <div class="absolute bottom-2 right-2 text-[#d4af37] text-xs">✤</div>
+
+        <div class="text-[#d4af37] font-moul text-2xl mb-6" id="env-names">រស្មី & ភក្តី</div>
+
+        <!-- Wax Seal Button -->
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#ffd700] to-[#b8860b] shadow-lg flex items-center justify-center border-2 border-[#fff3b0] text-[#122115] font-bold text-xl animate-pulse">
+          ❦
+        </div>
+
+        <p class="mt-6 text-xs text-[#f7e7a9]/80 font-medium">សូមចុចបើក ដើម្បីបើកសំបុត្រការ</p>
+      </div>
+    </section>
+
+    <!-- 🌟 2. MAIN INVITATION CONTENT (Scrollable) -->
+    <main id="main-content" class="mt-14 space-y-10">
+
+      <!-- Hero Section -->
+      <section class="relative text-center pt-8 px-4">
+        <div class="text-xs text-[#f7e7a9]/80 tracking-widest uppercase font-cinzel">The Wedding Invitation</div>
+        <h1 class="text-xl font-moul text-[#d4af37] mt-1 mb-4">សិរីសួស្តីអាពាហ៍ពិពាហ៍</h1>
+
+        <!-- Hero Photo -->
+        <div class="relative w-full h-80 rounded-2xl overflow-hidden border border-[#d4af37]/30 shadow-xl mx-auto">
+          <img id="hero-img" class="w-full h-full object-cover" alt="Couple Prewedding">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#122115] via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Couple Names -->
+        <div class="mt-6">
+          <h2 class="text-2xl font-moul text-[#f7e7a9]" id="couple-kh-names">រស្មី & ភក្តី</h2>
+          <p class="text-xs text-[#d4af37] font-cinzel tracking-wider mt-1" id="couple-en-names">Phay Raksmey & Meas Pheakdey</p>
+        </div>
+
+        <!-- Date Pill -->
+        <div class="mt-6 inline-flex items-center justify-center bg-[#182d1c] border border-[#d4af37]/30 rounded-xl px-5 py-3 text-xs text-[#f7e7a9] space-x-3">
+          <span id="date-day-of-week">ថ្ងៃ អាទិត្យ</span>
+          <span class="text-[#d4af37] font-bold text-lg" id="date-day">១៥</span>
+          <span id="date-month">វិច្ឆិកា</span>
+          <span id="date-year">២០២៦</span>
+        </div>
+      </section>
+
+      <!-- Parents Section -->
+      <section class="px-6 py-6 bg-[#182d1c]/60 border-y border-[#d4af37]/20 text-center">
+        <p class="text-xs text-[#d4af37] font-semibold mb-4">មានកិត្តិយសសូមគោរពអញ្ជើញ</p>
+        <div class="grid grid-cols-2 gap-4 text-xs text-left">
+          <div class="space-y-1">
+            <span class="text-[#f7e7a9]/60">ខាងកូនប្រុស៖</span>
+            <p class="font-bold text-[#f7e7a9]" id="groom-father"></p>
+            <p class="font-bold text-[#f7e7a9]" id="groom-mother"></p>
+          </div>
+          <div class="space-y-1 text-right">
+            <span class="text-[#f7e7a9]/60">ខាងកូនស្រី៖</span>
+            <p class="font-bold text-[#f7e7a9]" id="bride-father"></p>
+            <p class="font-bold text-[#f7e7a9]" id="bride-mother"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⏳ Countdown Timer -->
+      <section class="px-6 text-center">
+        <h3 class="text-xs text-[#d4af37] font-cinzel uppercase tracking-widest mb-3">Countdown</h3>
+        <div class="grid grid-cols-4 gap-2 text-center">
+          <div class="bg-[#182d1c] border border-[#d4af37]/20 p-2 rounded-lg">
+            <span id="cd-days" class="text-xl font-bold text-[#d4af37]">00</span>
+            <div class="text-[10px] text-gray-400">ថ្ងៃ</div>
+          </div>
+          <div class="bg-[#182d1c] border border-[#d4af37]/20 p-2 rounded-lg">
+            <span id="cd-hours" class="text-xl font-bold text-[#d4af37]">00</span>
+            <div class="text-[10px] text-gray-400">ម៉ោង</div>
+          </div>
+          <div class="bg-[#182d1c] border border-[#d4af37]/20 p-2 rounded-lg">
+            <span id="cd-minutes" class="text-xl font-bold text-[#d4af37]">00</span>
+            <div class="text-[10px] text-gray-400">នាទី</div>
+          </div>
+          <div class="bg-[#182d1c] border border-[#d4af37]/20 p-2 rounded-lg">
+            <span id="cd-seconds" class="text-xl font-bold text-[#d4af37]">00</span>
+            <div class="text-[10px] text-gray-400">វិនាទី</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 📜 Schedule / Timeline -->
+      <section class="px-6 space-y-4">
+        <h3 class="text-center font-moul text-sm text-[#d4af37]">កម្មវិធីសិរីមង្គលអាពាហ៍ពិពាហ៍</h3>
+        <div id="schedule-container" class="space-y-4 text-xs"></div>
+      </section>
+
+      <!-- 📸 Gallery -->
+      <section class="px-4">
+        <h3 class="text-center font-moul text-sm text-[#d4af37] mb-4">អនុស្សាវរីយ៍មុនថ្ងៃមង្គល</h3>
+        <div id="gallery-grid" class="grid grid-cols-2 gap-2"></div>
+      </section>
+
+      <!-- 📍 Location & Map -->
+      <section class="px-6 text-center space-y-3">
+        <h3 class="font-moul text-sm text-[#d4af37]">ទីតាំងពិធីមង្គលការ</h3>
+        <p class="text-xs text-[#f7e7a9]" id="venue-text"></p>
+        <p class="text-xs text-gray-300" id="address-text"></p>
+        
+        <a id="gmap-btn" target="_blank" class="inline-block mt-3 px-5 py-2.5 bg-[#d4af37] text-[#122115] font-bold text-xs rounded-full shadow-lg">
+          🗺️ បើកផែនទី Google Maps
+        </a>
+      </section>
+
+      <!-- 💳 QR Code ចងដៃ -->
+      <section class="px-6 py-6 bg-[#182d1c] rounded-2xl mx-4 border border-[#d4af37]/30 text-center space-y-3">
+        <h3 class="font-moul text-sm text-[#d4af37]">ចំណងដៃតាមប្រព័ន្ធធនាគារ</h3>
+        <p class="text-[11px] text-gray-300">លោកអ្នកអាចស្កេន KHQR ដើម្បីជូនពរជ័យ</p>
+        <div class="flex justify-center">
+          <img id="khqr-img" class="w-44 h-44 rounded-xl border border-white p-2 bg-white" alt="KHQR Code">
+        </div>
+        <p class="text-xs text-[#f7e7a9] font-bold tracking-wider" id="qr-name"></p>
+      </section>
+
+      <!-- 🙏 Footer -->
+      <footer class="text-center pt-6 px-4 space-y-2 border-t border-[#d4af37]/20">
+        <p class="font-moul text-base text-[#d4af37]">សូមអរគុណ</p>
+        <p class="text-[11px] text-gray-400">វត្តមានរបស់លោកអ្នកជាកិត្តិយសដ៏ខ្ពង់ខ្ពស់សម្រាប់យើងខ្ញុំ</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="wedding-data.js"></script>
+  <script>
+    // 1. Fill Dynamic Content from WEDDING_DATA
+    document.getElementById('nav-initials').innerText = `${WEDDING_DATA.groom.nameKh} & ${WEDDING_DATA.bride.nameKh}`;
+    document.getElementById('env-names').innerText = `${WEDDING_DATA.groom.nameKh} & ${WEDDING_DATA.bride.nameKh}`;
+    document.getElementById('couple-kh-names').innerText = `${WEDDING_DATA.groom.nameKh} & ${WEDDING_DATA.bride.nameKh}`;
+    document.getElementById('couple-en-names').innerText = `${WEDDING_DATA.groom.nameEn} & ${WEDDING_DATA.bride.nameEn}`;
+    
+    document.getElementById('hero-img').src = WEDDING_DATA.photos.hero;
+    document.getElementById('date-day-of-week').innerText = WEDDING_DATA.dateKh.dayOfWeek;
+    document.getElementById('date-day').innerText = WEDDING_DATA.dateKh.day;
+    document.getElementById('date-month').innerText = WEDDING_DATA.dateKh.month;
+    document.getElementById('date-year').innerText = WEDDING_DATA.dateKh.year;
+
+    document.getElementById('groom-father').innerText = WEDDING_DATA.groom.father;
+    document.getElementById('groom-mother').innerText = WEDDING_DATA.groom.mother;
+    document.getElementById('bride-father').innerText = WEDDING_DATA.bride.father;
+    document.getElementById('bride-mother').innerText = WEDDING_DATA.bride.mother;
+
+    document.getElementById('venue-text').innerText = WEDDING_DATA.location.venueKh;
+    document.getElementById('address-text').innerText = WEDDING_DATA.location.addressKh;
+    document.getElementById('gmap-btn').href = WEDDING_DATA.location.googleMapsUrl;
+
+    document.getElementById('khqr-img').src = WEDDING_DATA.qrGift.khqrImage;
+    document.getElementById('qr-name').innerText = WEDDING_DATA.qrGift.name;
+
+    // Render Schedule
+    const schedContainer = document.getElementById('schedule-container');
+    WEDDING_DATA.schedule.forEach(day => {
+      const dayDiv = document.createElement('div');
+      dayDiv.className = "bg-[#182d1c] p-4 rounded-xl border border-[#d4af37]/20";
+      dayDiv.innerHTML = `<h4 class="font-bold text-[#d4af37] mb-2">${day.dayTitle}</h4>`;
+      day.events.forEach(ev => {
+        dayDiv.innerHTML += `
+          <div class="flex justify-between py-1 border-b border-white/5 last:border-none">
+            <span class="text-gray-300">${ev.title}</span>
+            <span class="text-[#f7e7a9] font-medium">${ev.time}</span>
+          </div>
+        `;
+      });
+      schedContainer.appendChild(dayDiv);
+    });
+
+    // Render Gallery Photos
+    const galGrid = document.getElementById('gallery-grid');
+    WEDDING_DATA.photos.gallery.forEach(url => {
+      const img = document.createElement('img');
+      img.src = url;
+      img.className = "w-full h-44 object-cover rounded-xl border border-[#d4af37]/20";
+      galGrid.appendChild(img);
+    });
+
+    // 2. YouTube Audio Autoplay Implementation
+    let player;
+    let isPlaying = false;
+
+    // Load YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    window.onYouTubeIframeAPIReady = function() {
+      player = new YT.Player('youtube-player', {
+        height: '0',
+        width: '0',
+        videoId: WEDDING_DATA.youtubeVideoId,
+        playerVars: {
+          'autoplay': 0,
+          'loop': 1,
+          'playlist': WEDDING_DATA.youtubeVideoId
+        },
+        events: {
+          'onReady': () => console.log("Audio Ready")
+        }
+      });
+    };
+
+    function startMusic() {
+      if (player && player.playVideo) {
+        player.playVideo();
+        isPlaying = true;
+      }
+    }
+
+    // Envelope click -> Open letter & trigger song
+    document.getElementById('envelope-box').addEventListener('click', () => {
+      startMusic();
+      const envScreen = document.getElementById('envelope-screen');
+      envScreen.classList.add('opacity-0', 'transition-opacity', 'duration-700', 'pointer-events-none');
+      setTimeout(() => envScreen.remove(), 700);
+    });
+
+    // Music toggle button
+    document.getElementById('music-btn').addEventListener('click', () => {
+      if (!player) return;
+      if (isPlaying) {
+        player.pauseVideo();
+        isPlaying = false;
+      } else {
+        player.playVideo();
+        isPlaying = true;
+      }
+    });
+
+    // 3. Countdown calculation
+    function runCountdown() {
+      const target = new Date(WEDDING_DATA.weddingDate).getTime();
+      setInterval(() => {
+        const now = new Date().getTime();
+        const diff = target - now;
+        if (diff > 0) {
+          document.getElementById('cd-days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+          document.getElementById('cd-hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          document.getElementById('cd-minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          document.getElementById('cd-seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }
+      }, 1000);
+    }
+    runCountdown();
+  </script>
+</body>
+</html>
