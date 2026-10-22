@@ -1,4 +1,128 @@
-const WEDDING_DATA = {
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Kantumruy+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Moul&family=Moulpali&family=Playfair+Display:ital,wght@0,600;1,400&display=swap');
+
+:root {
+  --bg-deep-green: #112416;
+  --bg-card-green: #182e1e;
+  --gold-primary: #d4af37;
+  --gold-light: #f5e4a8;
+  --gold-dim: #9d8029;
+  --gold-border: rgba(212, 175, 55, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #08110a;
+  color: #f3f4f6;
+  font-family: 'Kantumruy Pro', sans-serif;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.font-moul { font-family: 'Moul', cursive; }
+.font-moulpali { font-family: 'Moulpali', cursive; }
+.font-cinzel { font-family: 'Cinzel', serif; }
+.font-cinzel-dec { font-family: 'Cinzel Decorative', cursive; }
+.font-serif-en { font-family: 'Playfair Display', serif; }
+
+/* Background repeating subtle Khmer pattern */
+.khmer-pattern-bg {
+  background-color: var(--bg-deep-green);
+  background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Floating Golden Dust Particles */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--gold-primary);
+  opacity: 0;
+  animation: floatUp 7s infinite ease-in-out;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* Trifold Opening Animation */
+.trifold-card {
+  perspective: 1400px;
+}
+
+.door-left, .door-right {
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.open-envelope .door-left {
+  transform: rotateY(-130deg);
+}
+
+.open-envelope .door-right {
+  transform: rotateY(130deg);
+}
+
+.open-envelope .wax-seal {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.4s ease;
+}
+
+/* Arch Frame for Photos */
+.arch-frame {
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border: 1px solid var(--gold-border);
+  overflow: hidden;
+}
+
+/* Traditional Gold Border Corner */
+.gold-frame-box {
+  border: 1px solid var(--gold-border);
+  position: relative;
+}
+
+.gold-frame-box::before, .gold-frame-box::after {
+  content: "✤";
+  position: absolute;
+  color: var(--gold-primary);
+  font-size: 10px;
+}
+.gold-frame-box::before { top: 3px; left: 4px; }
+.gold-frame-box::after { top: 3px; right: 4px; }
+
+/* Audio Equalizer Bars */
+@keyframes barJump {
+  0%, 100% { height: 3px; }
+  50% { height: 16px; }
+}
+
+.playing .eq-bar:nth-child(1) { animation: barJump 0.8s infinite 0.1s ease-in-out; }
+.playing .eq-bar:nth-child(2) { animation: barJump 0.7s infinite 0.3s ease-in-out; }
+.playing .eq-bar:nth-child(3) { animation: barJump 0.9s infinite 0.2s ease-in-out; }
+.playing .eq-bar:nth-child(4) { animation: barJump 0.6s infinite 0.4s ease-in-out; }const WEDDING_DATA = {
   // 🎵 Link ឬ ID បទចម្រៀង YouTube ដែលអ្នកចង់ដាក់
   // គ្រាន់តែចម្លង Video ID (ឧទាហរណ៍ https://www.youtube.com/watch?v=f-B0V-j5bHk គឺយក "f-B0V-j5bHk")
   youtubeVideoId: "D8e1Y0oU4W0", // ជំនួសដោយបទភ្លេងការខ្មែរដែលអ្នកស្រឡាញ់
